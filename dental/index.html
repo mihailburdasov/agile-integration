@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Снимок пациента</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wordmark">Клиника · 3D-снимок</div>
+    <span class="tag">Прототип</span>
+  </header>
+
+  <main class="layout">
+    <aside class="clients" aria-label="Пациенты">
+      <div class="label">Пациенты</div>
+      <input id="client-search" class="input" type="search" placeholder="Поиск по имени или ID" autocomplete="off">
+      <ul id="client-list" class="client-list"></ul>
+      <label class="client-select-wrap">
+        <span class="label">Пациент</span>
+        <select id="client-select" class="input"></select>
+      </label>
+    </aside>
+
+    <section class="stage" aria-label="3D-модель">
+      <div id="viewer">
+        <div id="viewer-mount"></div>
+        <div class="toolbar">
+          <div class="seg" role="group" aria-label="Челюсть">
+            <button type="button" data-jaw="both" class="is-on">Обе</button>
+            <button type="button" data-jaw="upper">Верхняя</button>
+            <button type="button" data-jaw="lower">Нижняя</button>
+          </div>
+          <button type="button" id="toggle-labels" class="btn" aria-pressed="false">Номера</button>
+          <button type="button" id="reset-view" class="btn">Сбросить вид</button>
+          <button type="button" id="download" class="btn">Скачать снимок</button>
+        </div>
+        <div id="tooth-info" class="tooth-info" hidden></div>
+        <div class="legend">
+          <span><i class="sw sw-current"></i>Лечение сейчас</span>
+          <span><i class="sw sw-next"></i>Следующий этап</span>
+          <span><i class="sw sw-treated"></i>Пролечено</span>
+        </div>
+      </div>
+    </section>
+
+    <aside id="panel" class="panel" aria-label="Карточка пациента"></aside>
+  </main>
+</body>
+</html>
