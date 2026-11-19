@@ -215,7 +215,7 @@
 
   function firstNames(full) {
     const parts = String(full || '').trim().split(/\s+/);
-    return parts.length > 1 ? parts.slice(1).join(' ') : parts[0] || '';
+    return parts[0] || ''; // data.js: «Имя Фамилия»
   }
 
   function toothNum(t) {
